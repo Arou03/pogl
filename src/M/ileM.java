@@ -1,7 +1,9 @@
-import java.util.*;
+package M;
+
+import C.Zone;
 
 public class ileM {
-    private Zone[][] plateau;
+    public Zone[][] plateau;
     public final int dimension; 
 
    //constructeur 

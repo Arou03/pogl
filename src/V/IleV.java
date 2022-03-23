@@ -1,15 +1,19 @@
-import IG.*;
+package V;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.util.*;
+
+import C.Zone;
+import IG.Grille;
+import IG.ZoneCliquable;
+import M.ileM;
 
 
 public class IleV {
 
     public class Plateau extends Grille {
         private ileM Ile;
-
+        private zoneVue[][] ileview;
         // Attributs statiques
         public Plateau(int dim, ileM ile) {
             super(dim, dim);
@@ -17,6 +21,7 @@ public class IleV {
 
             for(int i = 0; i < dim; i++) {
                 for(int j = 0; j < dim; j++) {
+                    Ile.plateau[i][j] = new Zone();
                     this.ajouteElement(new zoneVue(i, j));
                 }
             }
@@ -34,12 +39,12 @@ public class IleV {
 
         @Override
         public void clicGauche() {
-            setBackground(Color.BLACK);
+            setBackground(Color.BLUE);
         }
 
         @Override
         public void clicDroit() {
-            setBackground(Color.white);
+            setBackground(Color.magenta);
         }
         
     }

@@ -1,3 +1,5 @@
+package C;
+
 import java.util.*;
 
 import IG.ZoneCliquable;
@@ -14,4 +16,6 @@ public class Zone {
     public Zone() {
         etat = Etat.NORMAL;    
     }
+
+   //quand tu construis une zone, elles sont normales de base puis on mettra une couleur
 }
