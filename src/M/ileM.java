@@ -20,3 +20,9 @@ public class ileM {
         return plateau[x][y];
     }
 }
+
+
+
+    /*public Zone inondé(){
+     if Etat.INONDEE {
+            setBackground */

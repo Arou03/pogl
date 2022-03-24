@@ -36,18 +36,18 @@ public class IleV {
 
             this.setPreferredSize(new Dimension(30, 30));
         }
-
+    }
         @Override
-        public void clicGauche() {
+        public clic.Droit(){
+
             setBackground(Color.BLUE);
         }
 
-        @Override
-        public void clicDroit() {
+       /*@Override
+        //public void clic.Gauche(){
             setBackground(Color.magenta);
-        }
-        
-    }
+        }*/
+
 }
 
 
