@@ -3,6 +3,9 @@ package V;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.Action;
+import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
+
 import C.Zone;
 import IG.Grille;
 import IG.ZoneCliquable;
@@ -30,24 +33,33 @@ public class IleV {
     }
 
     public class zoneVue extends ZoneCliquable{
+        public Zone SUBMERGEE;
+        public Zone INONDEE;
 
         public zoneVue(int x, int y) {
             super(x, y);
 
             this.setPreferredSize(new Dimension(30, 30));
         }
-    }
-        @Override
-        public clic.Droit(){
 
-            setBackground(Color.BLUE);
+        @Override
+        public void clicGauche() {
+            setBackground(Color.BLACK);
+            
         }
 
-       /*@Override
-        //public void clic.Gauche(){
-            setBackground(Color.magenta);
-        }*/
+        @Override
+        public void clicDroit() {
+            setBackground(Color.CYAN);
+            
+        }
 
+        /*public void ZONE(Zone SUBMERGEE, Zone INONDEE){
+            this.SUBMERGEE = setBackground(Color.GRAY));
+            this.INONDEE = setBackground(Color.GREEN); //bref j'en ai marre d
+
+        }*/
+    }
 }
 
 

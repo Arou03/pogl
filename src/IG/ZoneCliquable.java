@@ -7,7 +7,6 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-
 /**
  * Classe pour une zone carrée pouvant recevoir des clics de souris.
  */
@@ -33,7 +32,7 @@ public abstract class ZoneCliquable extends JPanel implements MouseListener {
 	addMouseListener(this);
 	setBackground(Color.WHITE);
     }
-    
+   
     /**
      * Change le texte affiché dans la zone. 
      *
