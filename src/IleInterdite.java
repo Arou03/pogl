@@ -16,8 +16,8 @@ public class IleInterdite {
         Validation validation = new Validation(plateau);
         Indice indice = new Indice(plateau);*/
         ileM modele = new ileM(dimension);
-        IleV.Plateau affichage = new IleV().new Plateau(dimension, modele);
-        fenetre.ajouteElement(affichage);
+        IleV affichage = new IleV(modele);
+        fenetre.ajouteElement(affichage.p);
         
         JButton b = new JButton("Fin de tour");
         //b.setBounds(0, 0,30,20);
@@ -29,6 +29,11 @@ public class IleInterdite {
         
         q.addActionListener(e->{
             fenetre.dispose();
+        });
+
+        b.addActionListener(e->{
+            modele.innonde_random();
+            affichage.actualise();
         });
 
         fenetre.ajouteElement(b);
