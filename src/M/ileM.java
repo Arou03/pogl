@@ -20,8 +20,8 @@ public class ileM {
                 if(
                  (i + j < 4 && i - j < 4) ||
                  (i + j > 14) ||
-                 (i + j > 5 && i - j > 5) //||
-                 //(i + j < 0)
+                 (i + j > 5 && i - j > 5) ||
+                 (i + j > 5 && j - i > 5) 
                  ) plateau[i][j].etat = Etat.SUBMERGEE;
             }
         }
@@ -37,7 +37,7 @@ public class ileM {
                 x = r.nextInt(dimension);
                 y = r.nextInt(dimension);
                 cmpt++;
-                if(cmpt > dimension*dimension) break;
+                if(cmpt > dimension*dimension*dimension) break;
             } while(this.plateau[x][y].etat != Etat.NORMAL);
             this.plateau[x][y].innonde();
         }
