@@ -38,7 +38,7 @@ public class ileM {
                 y = r.nextInt(dimension);
                 cmpt++;
                 if(cmpt > dimension*dimension*dimension) break;
-            } while(this.plateau[x][y].etat != Etat.NORMAL);
+            } while(this.plateau[x][y].etat == Etat.SUBMERGEE);
             this.plateau[x][y].innonde();
         }
     }
