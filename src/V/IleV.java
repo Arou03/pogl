@@ -16,6 +16,11 @@ public class IleV {
 
     public Plateau p;
 
+
+    /**
+     * constructeur 
+     * @param modele
+     */
     public IleV(ileM modele) {
         this.p = new IleV.Plateau(modele);
     }
@@ -38,11 +43,20 @@ public class IleV {
             }
             
         }
-
+        /**
+         * Récupérer les coordonnées d'une zone
+         * @param x
+         * @param y
+         * @return les coordonnées de la zone sur le plateau
+         */
         public zoneVue get_zone(int x, int y) {
             return ileView[x][y];
         }
-
+        
+        /**
+         * Mise à jour de la zoneVue 
+         * @param z
+         */
         public void update(zoneVue z) {
             ileView[z.x][z.y] = z;
         }
@@ -56,7 +70,11 @@ public class IleV {
             this.x = x;
             this.y = y;
         }
-
+        
+        /**
+         * attribution des couleurs à chaque état de zone
+         * @param z
+         */
         public zoneVue(Zone z) {
             super(30, 30);
             this.x = z.x;
@@ -81,9 +99,13 @@ public class IleV {
         public void clicGauche() {
             
         }
-
+        
+        /**
+         * le joueur se déplace
+         */
         @Override
         public void clicDroit() {
+            M.joueur.se_deplace();
         }
 
         /*public void ZONE(Zone SUBMERGEE, Zone INONDEE){
@@ -92,7 +114,11 @@ public class IleV {
 
         }*/
     }
+    
 
+    /**
+     * actualisation de chaque état des zones sur le plateau
+     */
     public void actualise() {
         for(int i = 0; i < this.p.Ile.dimension; i++) {
             for(int j = 0; j < this.p.Ile.dimension; j++) {

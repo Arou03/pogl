@@ -11,20 +11,22 @@ import V.IleV;
 public class IleInterdite {
     public static void main(String[] args) {
         int dimension = 10; 
+
+        /**
+         * création de la fenêtre 
+         * et ajout de notre modèle 
+         */
 	    Fenetre fenetre = new Fenetre( "Ile Interdite");
-        /*Plateau plateau = new Plateau(nb);
-        Validation validation = new Validation(plateau);
-        Indice indice = new Indice(plateau);*/
         ileM modele = new ileM(dimension);
         IleV affichage = new IleV(modele);
         fenetre.ajouteElement(affichage.p);
-        
+
+        /**
+         * création des boutons 
+         * et ajout des boutons à notre fenêtre
+         */
         JButton b = new JButton("Fin de tour");
-        //b.setBounds(0, 0,30,20);
-        //fenetre.getContentPane().add(b);
-        //fenetre.getContentPane().add(b, BorderLayout.EAST); 
-        //fenetre.setVisible(true);
-        //b.getLocationOnScreen(); 
+    
         JButton q = new JButton("Exit");
         
         q.addActionListener(e->{
@@ -47,3 +49,7 @@ public class IleInterdite {
        
     }
 }
+
+ /*Plateau plateau = new Plateau(nb);
+        Validation validation = new Validation(plateau);
+        Indice indice = new Indice(plateau);*/

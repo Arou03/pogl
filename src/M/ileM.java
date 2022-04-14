@@ -9,7 +9,10 @@ public class ileM {
     public Zone[][] plateau;
     public final int dimension; 
 
-   //constructeur 
+    /**
+     * constructeur  
+     * @param dim
+     */
 
     public ileM(int dim){
         this.plateau = new Zone[dim][dim];
@@ -26,6 +29,10 @@ public class ileM {
             }
         }
     }
+
+    /**
+     * innondation des zones de façon aléatoire
+     */
 
     public void innonde_random() {
         Random r = new Random();

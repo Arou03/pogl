@@ -17,24 +17,43 @@ public class Zone {
 
     public Etat etat;
 
+    /** 
+     * initialisation des coordonnées d'une zone
+     */
     public Zone() {
         etat = Etat.NORMAL; 
         x = -1;
         y = -1;   
     }
-
+    
+    /**
+     * initialisation se "etat" par "Etat.NORMAL"
+     * @param x
+     * @param y
+     */
     public Zone(int x, int y) {
         etat = Etat.NORMAL;
         this.x = x;
         this.y = y;
     }
-
+    
+    /**
+     * constructeur
+     * @param x
+     * @param y
+     * @param e
+     */
     public Zone(int x, int y, Etat e) {
         etat = e;
         this.x = x;
         this.y = y;
     }
+    
 
+    /**
+     * méthode inonde
+     * changement de l'état 
+     */
     public void innonde() {
         switch(this.etat){
             case NORMAL: 
