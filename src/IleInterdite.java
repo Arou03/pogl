@@ -1,7 +1,8 @@
 import java.awt.Color;
+
+import C.Bouton;
+
 import java.awt.BorderLayout;
-import javax.swing.Action;
-import javax.swing.JButton;
 
 import IG.Fenetre;
 import M.ileM;
@@ -17,36 +18,16 @@ public class IleInterdite {
          */
 	    Fenetre fenetre = new Fenetre( "Ile Interdite");
         ileM modele = new ileM(dimension);
-        IleV affichage = new IleV(modele);
-        fenetre.ajouteElement(affichage.p);
+        Bouton b = new Bouton(fenetre, modele);
 
-        /**
-         * création des boutons 
-         * et ajout des boutons à notre fenêtre
-         */
-        JButton b = new JButton("Fin de tour");
-    
-        JButton q = new JButton("Exit");
-        
-        q.addActionListener(e->{
-            fenetre.dispose();
-        });
 
-        b.addActionListener(e->{
-            modele.innonde_random();
-            affichage.actualise();
-        });
-
-        fenetre.ajouteElement(b);
-        fenetre.ajouteElement(q);
 
         fenetre.setLocationRelativeTo(null);
         fenetre.setVisible(true);
         
         fenetre.dessineFenetre();
-
-       
     }
+
 }
 
  /*Plateau plateau = new Plateau(nb);

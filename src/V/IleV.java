@@ -1,14 +1,11 @@
 package V;
 
 import java.awt.Color;
-import java.awt.Dimension;
 
-import javax.swing.Action;
-import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
+
 
 import C.*;
 import IG.Grille;
-import IG.ZoneCliquable;
 import M.*;
 
 
