@@ -6,19 +6,20 @@ public class ZoneM {
     public int x;
     public int y;
 
+    public JoueurM j =  null;
+
     public enum Etat{
         NORMAL,
         INONDEE,
         SUBMERGEE,
     }
 
-    public Etat etat;
+    public Etat etat = Etat.NORMAL;
 
     /** 
      * initialisation des coordonnées d'une zone
      */
-    public ZoneM() {
-        etat = Etat.NORMAL; 
+    public ZoneM() { 
         x = -1;
         y = -1;   
     }
@@ -29,7 +30,6 @@ public class ZoneM {
      * @param y
      */
     public ZoneM(int x, int y) {
-        etat = Etat.NORMAL;
         this.x = x;
         this.y = y;
     }

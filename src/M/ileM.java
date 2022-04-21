@@ -28,6 +28,7 @@ public class ileM {
                  ) plateau[i][j].etat = Etat.SUBMERGEE;
             }
         }
+        this.addPlayer();
     }
 
     /**
@@ -48,5 +49,9 @@ public class ileM {
             } while(this.plateau[x][y].etat == Etat.SUBMERGEE);
             this.plateau[x][y].innonde();
         }
+    }
+
+    public void addPlayer() {
+        plateau[0][0].j = new JoueurM(0, 0)
     }
 }
