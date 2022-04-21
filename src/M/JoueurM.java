@@ -4,8 +4,8 @@ import C.ZoneC;
 
 
 public class JoueurM {
-    int x;
-    int y;
+    public int x;
+    public int y;
 
     /**
      * constructeur Joueur 

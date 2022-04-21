@@ -52,6 +52,6 @@ public class ileM {
     }
 
     public void addPlayer() {
-        plateau[0][0].j = new JoueurM(0, 0)
+        plateau[0][0].j = new JoueurM(0, 0);
     }
 }
