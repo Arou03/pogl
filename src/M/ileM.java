@@ -2,11 +2,11 @@ package M;
 
 import java.util.Random;
 
-import C.Zone;
-import C.Zone.Etat;
+import M.ZoneM.Etat;
+
 
 public class ileM {
-    public Zone[][] plateau;
+    public ZoneM[][] plateau;
     public final int dimension; 
 
     /**
@@ -15,11 +15,11 @@ public class ileM {
      */
 
     public ileM(int dim){
-        this.plateau = new Zone[dim][dim];
+        this.plateau = new ZoneM[dim][dim];
         this.dimension = dim;
         for(int i = 0; i < dim; i++) {
             for(int j = 0; j < dim; j++) { 
-                plateau[i][j] = new Zone(i, j);
+                plateau[i][j] = new ZoneM(i, j);
                 if(
                  (i + j < 4 && i - j < 4) ||
                  (i + j > 14) ||

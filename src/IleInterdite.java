@@ -3,7 +3,6 @@ import java.awt.BorderLayout;
 import javax.swing.Action;
 import javax.swing.JButton;
 
-import C.Zone;
 import IG.Fenetre;
 import M.ileM;
 import V.IleV;

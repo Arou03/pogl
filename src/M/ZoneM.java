@@ -1,10 +1,7 @@
-package C;
-import java.util.*;
-import IG.ZoneCliquable;
+package M;
 
 
-
-public class Zone {
+public class ZoneM {
 
     public int x;
     public int y;
@@ -20,7 +17,7 @@ public class Zone {
     /** 
      * initialisation des coordonnées d'une zone
      */
-    public Zone() {
+    public ZoneM() {
         etat = Etat.NORMAL; 
         x = -1;
         y = -1;   
@@ -31,7 +28,7 @@ public class Zone {
      * @param x
      * @param y
      */
-    public Zone(int x, int y) {
+    public ZoneM(int x, int y) {
         etat = Etat.NORMAL;
         this.x = x;
         this.y = y;
@@ -43,7 +40,7 @@ public class Zone {
      * @param y
      * @param e
      */
-    public Zone(int x, int y, Etat e) {
+    public ZoneM(int x, int y, Etat e) {
         etat = e;
         this.x = x;
         this.y = y;
@@ -70,4 +67,5 @@ public class Zone {
     }
 
    //quand tu construis une zone, elles sont normales de base puis on mettra une couleur
+
 }
