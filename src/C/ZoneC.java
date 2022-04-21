@@ -2,6 +2,7 @@ package C;
 import java.util.*;
 import IG.ZoneCliquable;
 import M.ZoneM;
+import V.JoueurV;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -19,12 +20,7 @@ import M.*;
 public class ZoneC extends ZoneCliquable{
     public int x;
     public int y;
-
-    public ZoneC(int x, int y) {
-        super(30, 30);
-        this.x = x;
-        this.y = y;
-    }
+    ZoneM zM;
     
     /**
      * attribution des couleurs à chaque état de zone
@@ -34,6 +30,7 @@ public class ZoneC extends ZoneCliquable{
         super(30, 30);
         this.x = z.x;
         this.y = z.y;
+        this.zM = z;
         switch(z.etat){
             case NORMAL: 
                 this.setBackground(Color.YELLOW);
@@ -68,4 +65,28 @@ public class ZoneC extends ZoneCliquable{
         this.INONDEE = setBackground(Color.GREEN); //bref j'en ai marre d
 
     }*/
+    
+    /**
+     * Mise à jour de la zoneVue 
+     * @param z
+     */
+    public void update() {
+        switch(zM.etat){
+            case NORMAL: 
+                break;
+
+            case INONDEE:
+                this.setBackground(Color.CYAN);
+                break;
+
+            case SUBMERGEE:
+                this.setBackground(Color.BLUE);
+                break;
+        }
+        if(zM.j != null) {
+            this.add(new JoueurV(zM.j));
+        } else {
+            this.removeAll();
+        }
+    }
 }

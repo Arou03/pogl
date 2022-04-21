@@ -52,13 +52,6 @@ public class IleV {
             return ileView[x][y];
         }
         
-        /**
-         * Mise à jour de la zoneVue 
-         * @param z
-         */
-        public void update(ZoneC z) {
-            ileView[z.x][z.y] = z;
-        }
     }
 
    
@@ -70,18 +63,7 @@ public class IleV {
     public void actualise() {
         for(int i = 0; i < this.p.Ile.dimension; i++) {
             for(int j = 0; j < this.p.Ile.dimension; j++) {
-                switch(this.p.Ile.plateau[i][j].etat){
-                    case NORMAL: 
-                        break;
-        
-                    case INONDEE:
-                        this.p.ileView[i][j].setBackground(Color.CYAN);
-                        break;
-        
-                    case SUBMERGEE:
-                        this.p.ileView[i][j].setBackground(Color.BLUE);
-                        break;
-                }
+                this.p.ileView[i][j].update();
             }
         } 
     }
