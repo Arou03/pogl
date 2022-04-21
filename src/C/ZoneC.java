@@ -2,6 +2,7 @@ package C;
 import java.util.*;
 import IG.ZoneCliquable;
 import M.ZoneM;
+import V.IleV;
 import V.JoueurV;
 
 import java.awt.Color;
@@ -21,16 +22,20 @@ public class ZoneC extends ZoneCliquable{
     public int x;
     public int y;
     ZoneM zM;
-    
+    IleV Vile;
+
+
     /**
      * attribution des couleurs à chaque état de zone
      * @param z
      */
-    public ZoneC(ZoneM z) {
+    public ZoneC(ZoneM z, IleV ile) {
         super(30, 30);
         this.x = z.x;
         this.y = z.y;
         this.zM = z;
+        this.Vile = ile;
+
         switch(z.etat){
             case NORMAL: 
                 this.setBackground(Color.YELLOW);
@@ -49,7 +54,8 @@ public class ZoneC extends ZoneCliquable{
 
     @Override
     public void clicGauche() {
-        
+        Vile.Ile.seDeplace(this.zM);
+        Vile.actualise();
     }
     
     /**

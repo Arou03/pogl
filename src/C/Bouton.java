@@ -43,7 +43,7 @@ public class Bouton extends JButton {
         this.ile = ile;
         affiche = new IleV(ile);
 
-        f.ajouteElement(affiche.p);
+        f.ajouteElement(affiche);
         f.ajouteElement(BoutonFdt);
         f.ajouteElement(BoutonEnd);
 

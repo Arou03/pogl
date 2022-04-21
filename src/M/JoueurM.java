@@ -22,7 +22,7 @@ public class JoueurM {
      * le joueur se déplace 
      * param Zone z
      */
-    public void seDeplace(ZoneC z) {
+    public void seDeplace(ZoneM z) {
         this.x = z.x;
         this.y = z.y;
     }

@@ -22,10 +22,11 @@ public class IleInterdite {
 
 
 
-        fenetre.setLocationRelativeTo(null);
+        
         fenetre.setVisible(true);
         
         fenetre.dessineFenetre();
+        fenetre.setLocationRelativeTo(null);
     }
 
 }
