@@ -39,7 +39,9 @@ public class IleV {
                 }
             }
             
+            ileView[0][0].add(new JoueurV(ile.plateau[0][0].j));
         }
+        
         /**
          * Récupérer les coordonnées d'une zone
          * @param x
