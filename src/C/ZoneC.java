@@ -6,9 +6,11 @@ import V.IleV;
 import V.JoueurV;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 
 import javax.swing.Action;
+import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
 
 import C.*;
@@ -54,8 +56,21 @@ public class ZoneC extends ZoneCliquable{
 
     @Override
     public void clicGauche() {
-        Vile.Ile.seDeplace(this.zM);
-        Vile.actualise();
+        ZoneM exZone;
+        exZone = Vile.Ile.seDeplace(this.zM);
+        
+        if(exZone != null) {
+            System.out.print (exZone.j);
+            System.out.print (this.zM.j);
+            JoueurV tmp = new JoueurV(zM.j);
+            this.add(tmp);
+            revalidate();
+            repaint();
+            Vile.ileView[exZone.x][exZone.y].remove(0);
+            Vile.ileView[exZone.x][exZone.y].revalidate();
+            Vile.ileView[exZone.x][exZone.y].repaint();
+        }
+
     }
     
     /**
@@ -63,7 +78,7 @@ public class ZoneC extends ZoneCliquable{
      */
     @Override
     public void clicDroit() {
-        //M.JoueurM.se_deplace();
+
     }
 
     /*public void ZONE(Zone SUBMERGEE, Zone INONDEE){
@@ -88,11 +103,6 @@ public class ZoneC extends ZoneCliquable{
             case SUBMERGEE:
                 this.setBackground(Color.BLUE);
                 break;
-        }
-        if(zM.j != null) {
-            this.add(new JoueurV(zM.j));
-        } else {
-            this.removeAll();
         }
     }
 }

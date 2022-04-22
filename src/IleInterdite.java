@@ -21,7 +21,6 @@ public class IleInterdite {
         Bouton b = new Bouton(fenetre, modele);
 
 
-
         
         fenetre.setVisible(true);
         

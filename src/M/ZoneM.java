@@ -45,6 +45,12 @@ public class ZoneM {
         this.x = x;
         this.y = y;
     }
+
+    public String toString() {
+        String joueurString = "";
+        if(this.j != null)  joueurString = "J";
+        return "[ " + joueurString + " (" + this.x + "; " + this.y + ")]";
+    }
     
 
     /**
@@ -64,6 +70,16 @@ public class ZoneM {
             case SUBMERGEE:
                 break;
         }
+    }
+
+    public Boolean contientJoueur() {
+        Boolean resultat;
+        if(this.j == null) {
+            resultat = false;
+        } else {
+            resultat = true;
+        }
+        return resultat;
     }
 
    //quand tu construis une zone, elles sont normales de base puis on mettra une couleur
