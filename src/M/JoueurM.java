@@ -2,7 +2,7 @@ package M;
 
 
 public class JoueurM {
-    public String id = "";
+    public int id;
     public int x;
     public int y;
     public int nbAction;
@@ -12,13 +12,14 @@ public class JoueurM {
      * param int x, int y 
      */
     
-    public JoueurM(int x, int y) {
+    public JoueurM(int x, int y, int id) {
         this.x = x;
         this.y = y;
+        this.id = id;
     }
 
     public String toString() {
-        return "id :" + id + " (" + x + ", " + y + ")\n";
+        return "id :" + id + " (" + x + ", " + y + ")";
     }
 
 

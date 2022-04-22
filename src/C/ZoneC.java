@@ -5,6 +5,7 @@ import V.IleV;
 import V.JoueurV;
 
 import java.awt.Color;
+import java.util.Random;
 
 
 
@@ -13,6 +14,11 @@ public class ZoneC extends ZoneCliquable{
     public int y;
     ZoneM zM;
     IleV Vile;
+    
+    Random r = new Random();
+     
+    Color[] colorsNormal = {Color.decode("#fff9a1"), Color.decode("#6ae66c")};
+    Color[] colorsSubmergee = {Color.decode("#2c32a3"), Color.decode("#393fad")};
 
 
     /**
@@ -25,18 +31,18 @@ public class ZoneC extends ZoneCliquable{
         this.y = z.y;
         this.zM = z;
         this.Vile = ile;
-
+        Random r = new Random();
         switch(z.etat){
-            case NORMAL: 
-                this.setBackground(Color.YELLOW);
+            case NORMAL:
+                this.setBackground(colorsNormal[r.nextInt(colorsNormal.length)]);
                 break;
 
             case INONDEE:
-                this.setBackground(Color.CYAN);
+                this.setBackground(Color.decode("#5cd6ff"));
                 break;
 
             case SUBMERGEE:
-                this.setBackground(Color.BLUE);
+                this.setBackground(colorsSubmergee[r.nextInt(colorsSubmergee.length)]);
                 break;
         }
     }
@@ -48,8 +54,6 @@ public class ZoneC extends ZoneCliquable{
         exZone = Vile.Ile.seDeplace(this.zM);
         
         if(exZone != null) {
-            System.out.print (exZone.j);
-            System.out.print (this.zM.j);
             JoueurV tmp = (JoueurV) Vile.ileView[exZone.x][exZone.y].getComponent(0);
             this.add(tmp);
             revalidate();
@@ -81,15 +85,15 @@ public class ZoneC extends ZoneCliquable{
      */
     public void update() {
         switch(zM.etat){
-            case NORMAL: 
+            case NORMAL:
                 break;
 
             case INONDEE:
-                this.setBackground(Color.CYAN);
+                this.setBackground(Color.decode("#5cd6ff"));
                 break;
 
             case SUBMERGEE:
-                this.setBackground(Color.BLUE);
+                this.setBackground(colorsSubmergee[r.nextInt(colorsSubmergee.length)]);
                 break;
         }
     }

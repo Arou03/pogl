@@ -11,27 +11,31 @@ public class ileM {
     public ZoneM[][] plateau;
     public final int dimension;
     public List<JoueurM> joueurs = new ArrayList<>();
-
-    /**
+    public int tourEnCours = 0;
+     /**
      * constructeur  
      * @param dim
      */
 
-    public ileM(int dim){
+    public ileM(int dim, int nbJoueur){
         this.plateau = new ZoneM[dim][dim];
         this.dimension = dim;
         for(int i = 0; i < dim; i++) {
             for(int j = 0; j < dim; j++) { 
-                plateau[i][j] = new ZoneM(i, j);
                 if(
                  (i + j < 4 && i - j < 4) ||
                  (i + j > 14) ||
                  (i + j > 5 && i - j > 5) ||
                  (i + j > 5 && j - i > 5) 
-                 ) plateau[i][j].etat = Etat.SUBMERGEE;
+                 ) {
+                    plateau[i][j] = new ZoneM(i, j, Etat.SUBMERGEE, nbJoueur);
+                 } else {
+                    plateau[i][j] = new ZoneM(i, j, Etat.NORMAL, nbJoueur);
+                 }
             }
         }
-        this.addPlayer();
+        System.out.println(this);
+        for(int i = 0; i < nbJoueur; i++) this.addPlayer(i);
     }
 
     public String toString() {
@@ -64,11 +68,18 @@ public class ileM {
             this.plateau[x][y].innonde();
         }
         for(int i = 0; i < joueurs.size(); i++) joueurs.get(i).nbAction = 0;
+        if(tourEnCours == joueurs.size() - 1) {
+            tourEnCours = 0;
+        } else {
+            tourEnCours++;
+        }
     }
 
-    public void addPlayer() {
-        joueurs.add(new JoueurM(0, 0));
-        plateau[0][0].j = joueurs.get(joueurs.size() - 1);
+    public void addPlayer(int id) {
+        JoueurM j = new JoueurM(0, 0, id);
+        joueurs.add(j);
+        System.out.println(plateau[j.x][j.y]);
+        plateau[j.x][j.y].joueurs.set(id , j);
     }
     
     /**
@@ -100,11 +111,11 @@ public class ileM {
         List<ZoneM> vois = voisins(z);
         ZoneM ancienneZone = null;
         for(int i = 0; i < vois.size(); i++) {
-            if(vois.get(i).j != null && vois.get(i).j.nbAction < 3) {
-                vois.get(i).j.seDeplace(z);
-                z.j = vois.get(i).j;
+            if(vois.get(i).joueurs.get(tourEnCours) != null && vois.get(i).joueurs.get(tourEnCours).nbAction < 3) {
+                vois.get(i).joueurs.get(tourEnCours).seDeplace(z);
+                z.joueurs.set(tourEnCours, vois.get(i).joueurs.get(tourEnCours));
                 ancienneZone = vois.get(i);
-                vois.get(i).j = null;
+                vois.get(i).joueurs.set(tourEnCours, null);
             }
         }
         return ancienneZone;

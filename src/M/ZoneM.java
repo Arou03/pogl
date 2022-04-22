@@ -1,12 +1,13 @@
 package M;
 
+import java.util.*;
 
 public class ZoneM {
 
     public int x;
     public int y;
 
-    public JoueurM j =  null;
+    public List<JoueurM> joueurs = new ArrayList<>();;
 
     public enum Etat{
         NORMAL,
@@ -15,24 +16,6 @@ public class ZoneM {
     }
 
     public Etat etat = Etat.NORMAL;
-
-    /** 
-     * initialisation des coordonnées d'une zone
-     */
-    public ZoneM() { 
-        x = -1;
-        y = -1;   
-    }
-    
-    /**
-     * initialisation se "etat" par "Etat.NORMAL"
-     * @param x
-     * @param y
-     */
-    public ZoneM(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
     
     /**
      * constructeur
@@ -40,15 +23,24 @@ public class ZoneM {
      * @param y
      * @param e
      */
-    public ZoneM(int x, int y, Etat e) {
-        etat = e;
+    public ZoneM(int x, int y, Etat e, int nbJoueur) {
+        this.etat = e;
         this.x = x;
         this.y = y;
+        for(int i = 0; i < nbJoueur; i++) {
+            this.joueurs.add(null);
+        }
     }
 
     public String toString() {
         String joueurString = "";
-        if(this.j != null)  joueurString = "J";
+        for(int i = 0; i < joueurs.size(); i++) {
+            if(joueurs.get(i) != null) {
+                joueurString += joueurs.get(i).id;
+            } else {
+                joueurString += "v";
+            }
+        }
         return "[ " + joueurString + " (" + this.x + "; " + this.y + ")]";
     }
     
@@ -73,13 +65,14 @@ public class ZoneM {
     }
 
     public Boolean contientJoueur() {
-        Boolean resultat;
-        if(this.j == null) {
-            resultat = false;
-        } else {
-            resultat = true;
+        for(int i = 0; i < joueurs.size(); i++) {
+            if(joueurs.get(i) != null) return true;
         }
-        return resultat;
+        return false;
+    }
+
+    public Boolean contientJoueur(int id) {
+        return joueurs.get(id) != null;
     }
 
    //quand tu construis une zone, elles sont normales de base puis on mettra une couleur

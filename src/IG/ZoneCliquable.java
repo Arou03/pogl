@@ -29,7 +29,7 @@ public abstract class ZoneCliquable extends JPanel implements MouseListener {
     public ZoneCliquable(int x, int y) {
 	setPreferredSize(new Dimension(x, y));
 	addMouseListener(this);
-	setBackground(Color.yellow);
+	setBackground(Color.getHSBColor(49, 43, 100));
     }
    
     /**
