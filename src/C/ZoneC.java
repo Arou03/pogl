@@ -62,11 +62,11 @@ public class ZoneC extends ZoneCliquable{
         if(exZone != null) {
             System.out.print (exZone.j);
             System.out.print (this.zM.j);
-            JoueurV tmp = new JoueurV(zM.j);
+            JoueurV tmp = (JoueurV) Vile.ileView[exZone.x][exZone.y].getComponent(0);
             this.add(tmp);
             revalidate();
             repaint();
-            Vile.ileView[exZone.x][exZone.y].remove(0);
+            Vile.ileView[exZone.x][exZone.y].remove(tmp);
             Vile.ileView[exZone.x][exZone.y].revalidate();
             Vile.ileView[exZone.x][exZone.y].repaint();
         }
