@@ -12,6 +12,7 @@ import java.awt.Dimension;
 import javax.swing.Action;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
+import javax.swing.undo.*;
 
 import C.*;
 import IG.Grille;
@@ -74,10 +75,11 @@ public class ZoneC extends ZoneCliquable{
     }
     
     /**
-     * le joueur se déplace
+     * revenir à l'action précédente
      */
     @Override
     public void clicDroit() {
+    
 
     }
 
@@ -101,7 +103,7 @@ public class ZoneC extends ZoneCliquable{
                 break;
 
             case SUBMERGEE:
-                this.setBackground(Color.BLUE);
+                this.setBackground(Color.blue);
                 break;
         }
     }

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import M.ZoneM.Etat;
+import V.IleV;
 
 
 public class ileM {
@@ -30,8 +31,11 @@ public class ileM {
                  ) plateau[i][j].etat = Etat.SUBMERGEE;
             }
         }
-        this.addPlayer();
+        this.addPlayer();   
+        
     }
+    
+    
 
     public String toString() {
         String resultat = "";
@@ -65,7 +69,7 @@ public class ileM {
     }
 
     public void addPlayer() {
-        plateau[0][0].j = new JoueurM(0, 0);
+        plateau[0][0].j = new JoueurM(0, 0);        
     }
     
     /**

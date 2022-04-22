@@ -24,7 +24,8 @@ public class Bouton extends JButton {
      */
      
     private JButton BoutonFdt = new JButton("Fin de tour");
-    private JButton BoutonEnd = new JButton("Exit");
+    private JButton BoutonEnd = new JButton("Quitter");
+    private JButton BoutonNextJoueur = new JButton("Joueur suivant");
     protected JTextField texte = new JTextField(10);
     protected JLabel label = new JLabel();
 
@@ -46,6 +47,7 @@ public class Bouton extends JButton {
         f.ajouteElement(affiche);
         f.ajouteElement(BoutonFdt);
         f.ajouteElement(BoutonEnd);
+        f.ajouteElement(BoutonNextJoueur);
 
 
         /**
@@ -58,6 +60,10 @@ public class Bouton extends JButton {
 
         BoutonEnd.addActionListener(e ->{
             f.dispose();
+        });
+
+        BoutonNextJoueur.addActionListener(e ->{
+            
         });
     }
 

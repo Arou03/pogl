@@ -21,7 +21,7 @@ public class JoueurM {
     public String toString() {
         return "id :" + id + " (" + x + ", " + y + ")\n";
     }
-
+    
 
     /**
      * le joueur se déplace 

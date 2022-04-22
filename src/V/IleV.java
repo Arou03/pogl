@@ -26,7 +26,9 @@ public class IleV extends Grille {
             }
         }
         
-        ileView[0][0].add(new JoueurV(ile.plateau[0][0].j));
+        for(int i = 0; i <=3; i++){
+            ileView[0][0].add(new JoueurV(ile.plateau[0][0].j));
+        }
     }
 
     public String toString() {
