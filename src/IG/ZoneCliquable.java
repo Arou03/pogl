@@ -1,10 +1,11 @@
 package IG;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.Dimension;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  * Classe pour une zone carrée pouvant recevoir des clics de souris.
@@ -21,15 +22,15 @@ public abstract class ZoneCliquable extends JPanel implements MouseListener {
      * @param y Deuxième dimention de la case
      */
     public ZoneCliquable(String texte, int x, int y) {
-	this(x, y);
-	this.texte = new Texte(texte);
-	this.add(this.texte);
+	    this(x, y);
+	    this.texte = new Texte(texte);
+	    this.add(this.texte);
     }
 
     public ZoneCliquable(int x, int y) {
-	setPreferredSize(new Dimension(x, y));
-	addMouseListener(this);
-	setBackground(Color.getHSBColor(49, 43, 100));
+        setPreferredSize(new Dimension(x, y));
+        addMouseListener(this);
+        setBackground(Color.WHITE);
     }
    
     /**
@@ -53,11 +54,11 @@ public abstract class ZoneCliquable extends JPanel implements MouseListener {
      * et [clicDroit].
      */
     public void mouseClicked(MouseEvent e) {
-	if (SwingUtilities.isRightMouseButton(e)) {
-	    this.clicDroit();
-	} else {
-	    this.clicGauche();
-	}
+        if (SwingUtilities.isRightMouseButton(e)) {
+            this.clicDroit();
+        } else {
+            this.clicGauche();
+        }
     }
 
     public void mouseEntered(MouseEvent e) {}

@@ -1,10 +1,8 @@
 package V;
 
-
-
-import C.*;
+import C.ZoneC;
 import IG.Grille;
-import M.*;
+import M.ileM;
 
 
 public class IleV extends Grille {
@@ -49,7 +47,6 @@ public class IleV extends Grille {
      * actualisation de chaque état des zones sur le plateau
      */
     public void actualise() {
-        System.out.print(this);
         for(int i = 0; i < this.Ile.dimension; i++) {
             for(int j = 0; j < this.Ile.dimension; j++) {
                 this.ileView[i][j].update();

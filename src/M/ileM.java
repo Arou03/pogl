@@ -34,7 +34,6 @@ public class ileM {
                  }
             }
         }
-        System.out.println(this);
         for(int i = 0; i < nbJoueur; i++) this.addPlayer(i);
     }
 
@@ -67,7 +66,7 @@ public class ileM {
             } while(this.plateau[x][y].etat == Etat.SUBMERGEE);
             this.plateau[x][y].innonde();
         }
-        for(int i = 0; i < joueurs.size(); i++) joueurs.get(i).nbAction = 0;
+        joueurs.get(tourEnCours).nbAction = 0;
         if(tourEnCours == joueurs.size() - 1) {
             tourEnCours = 0;
         } else {
@@ -78,7 +77,6 @@ public class ileM {
     public void addPlayer(int id) {
         JoueurM j = new JoueurM(0, 0, id);
         joueurs.add(j);
-        System.out.println(plateau[j.x][j.y]);
         plateau[j.x][j.y].joueurs.set(id , j);
     }
     

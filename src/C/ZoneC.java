@@ -1,11 +1,11 @@
 package C;
+import java.awt.Color;
+import java.util.Random;
+
 import IG.ZoneCliquable;
 import M.ZoneM;
 import V.IleV;
 import V.JoueurV;
-
-import java.awt.Color;
-import java.util.Random;
 
 
 
@@ -52,15 +52,12 @@ public class ZoneC extends ZoneCliquable{
     public void clicGauche() {
         ZoneM exZone;
         exZone = Vile.Ile.seDeplace(this.zM);
-        
         if(exZone != null) {
             JoueurV tmp = (JoueurV) Vile.ileView[exZone.x][exZone.y].getComponent(0);
+            this.update();
             this.add(tmp);
-            revalidate();
-            repaint();
             Vile.ileView[exZone.x][exZone.y].remove(tmp);
-            Vile.ileView[exZone.x][exZone.y].revalidate();
-            Vile.ileView[exZone.x][exZone.y].repaint();
+            Vile.ileView[exZone.x][exZone.y].update();
         }
 
     }
@@ -96,5 +93,7 @@ public class ZoneC extends ZoneCliquable{
                 this.setBackground(colorsSubmergee[r.nextInt(colorsSubmergee.length)]);
                 break;
         }
+        revalidate();
+        repaint();
     }
 }

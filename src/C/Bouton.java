@@ -1,11 +1,11 @@
 package C;
 
+import java.awt.GridBagConstraints;
+
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 import IG.Fenetre;
-
+import IG.Texte;
 import M.ileM;
 import V.IleV;
 
@@ -17,11 +17,11 @@ public class Bouton extends JButton {
      
     private JButton BoutonFdt = new JButton("Fin de tour");
     private JButton BoutonEnd = new JButton("Exit");
-    protected JTextField texte = new JTextField(10);
-    protected JLabel label = new JLabel();
+    protected Texte AfficheTour = new Texte("");
+    protected Texte AfficheAction = new Texte("");
 
     public ileM ile;
-    public IleV affiche;
+    public IleV Vue;
     Fenetre f;
 
     /**
@@ -33,11 +33,30 @@ public class Bouton extends JButton {
     public Bouton (Fenetre f, ileM ile){
         this.f = f;
         this.ile = ile;
-        affiche = new IleV(ile);
-
-        f.ajouteElement(affiche);
-        f.ajouteElement(BoutonFdt);
-        f.ajouteElement(BoutonEnd);
+        Vue = new IleV(ile);
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.NONE;
+        c.weightx = 0.5;
+        c.weighty = 0.5;
+        c.gridheight = 10;
+        c.gridwidth = 10;
+        c.gridx = 0;
+	    c.gridy = 0;
+        f.ajouteElement(Vue, c);
+        c.fill = GridBagConstraints.NONE;
+        c.gridheight = 1;
+        c.gridwidth = 1;
+	    c.gridx = 11;
+        c.gridy = 0;
+        AfficheTour.changeTexte("Tour du joueur " + (ile.tourEnCours + 1) );
+        f.ajouteElement(AfficheTour, c);
+        c.gridy = 1;
+        AfficheAction.changeTexte("Nombre d'action restantes : " + (3 - ile.joueurs.get(ile.tourEnCours).nbAction) );
+        f.ajouteElement(AfficheAction, c);
+        c.gridy = 2;
+        f.ajouteElement(BoutonFdt, c);
+        c.gridy = 3;
+        f.ajouteElement(BoutonEnd, c);
 
 
         /**
@@ -45,7 +64,8 @@ public class Bouton extends JButton {
          */
         BoutonFdt.addActionListener(e ->{
             this.ile.innonde_random();
-            this.affiche.actualise();
+            AfficheTour.changeTexte("Tour du joueur " + (ile.tourEnCours + 1) );
+            this.Vue.actualise();
         });
 
         BoutonEnd.addActionListener(e ->{
@@ -53,4 +73,8 @@ public class Bouton extends JButton {
         });
     }
 
+    public void update() {
+        AfficheTour.changeTexte("Tour du joueur " + (ile.tourEnCours + 1) );
+        AfficheAction.changeTexte("Nombre d'action restantes : " + (3 - ile.joueurs.get(ile.tourEnCours).nbAction) );
+    }
 }

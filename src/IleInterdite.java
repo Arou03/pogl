@@ -1,10 +1,9 @@
-import C.Bouton;
-
-import IG.Fenetre;
-import M.ileM;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import C.Bouton;
+import IG.Fenetre;
+import M.ileM;
 
 public class IleInterdite {
     public static void main(String[] args) {
@@ -29,10 +28,7 @@ public class IleInterdite {
 
 
         
-        fenetre.setVisible(true);
-        
         fenetre.dessineFenetre();
-        fenetre.setLocationRelativeTo(null);
     }
 
 }

@@ -1,4 +1,8 @@
 package IG;
+
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -23,9 +27,10 @@ public class Fenetre extends JFrame {
      * @param nom Nom de la fenetre.
      */
     public Fenetre(String nom) {
-	super(nom);
-	this.elements = new JPanel();
-	this.add(elements);
+        super(nom);
+        this.elements = new JPanel();
+        elements.setLayout(new GridBagLayout());
+        this.add(elements);
     }
 
     /**
@@ -34,16 +39,21 @@ public class Fenetre extends JFrame {
      * @param element Element a ajouter.
      */
     public void ajouteElement(JComponent element) {
-	elements.add(element);
+	    elements.add(element);
+    }
+
+    public void ajouteElement(JComponent element, GridBagConstraints c) {
+	    elements.add(element, c);
     }
     
     /**
      * Afficher la fenetre.
      */
     public void dessineFenetre() {
-	this.pack();
-	this.setVisible(true);
-	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 
 }

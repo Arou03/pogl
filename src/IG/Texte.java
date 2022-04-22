@@ -15,7 +15,7 @@ public class Texte extends JLabel {
      * @param texte Texte initial
      */
     public Texte(String texte) {
-	super(texte);
+	    super(texte);
     }
 
     /**
@@ -24,8 +24,8 @@ public class Texte extends JLabel {
      * @param texte Nouveau texte
      */
     public void changeTexte(String texte) {
-	this.setText(texte);
-	this.repaint();
+	    this.setText(texte);
+	    this.repaint();
     }
 
 }
