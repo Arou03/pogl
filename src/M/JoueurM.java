@@ -1,12 +1,11 @@
 package M;
 
-import C.ZoneC;
-
 
 public class JoueurM {
     public String id = "";
     public int x;
     public int y;
+    public int nbAction;
 
     /**
      * constructeur Joueur 
@@ -28,9 +27,8 @@ public class JoueurM {
      * param Zone z
      */
     public void seDeplace(ZoneM z) {
-        System.out.print(this);
         this.x = z.x;
         this.y = z.y;
-        System.out.print(this);
+        nbAction++;
     }
 }

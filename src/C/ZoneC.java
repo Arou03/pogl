@@ -1,22 +1,10 @@
 package C;
-import java.util.*;
 import IG.ZoneCliquable;
 import M.ZoneM;
 import V.IleV;
 import V.JoueurV;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-
-import javax.swing.Action;
-import javax.swing.JPanel;
-import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
-
-import C.*;
-import IG.Grille;
-import IG.ZoneCliquable;
-import M.*;
 
 
 

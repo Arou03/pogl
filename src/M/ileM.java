@@ -9,7 +9,8 @@ import M.ZoneM.Etat;
 
 public class ileM {
     public ZoneM[][] plateau;
-    public final int dimension; 
+    public final int dimension;
+    public List<JoueurM> joueurs = new ArrayList<>();
 
     /**
      * constructeur  
@@ -58,14 +59,16 @@ public class ileM {
                 x = r.nextInt(dimension);
                 y = r.nextInt(dimension);
                 cmpt++;
-                if(cmpt > dimension*dimension*dimension) break;
+                if(cmpt > dimension*dimension) break;
             } while(this.plateau[x][y].etat == Etat.SUBMERGEE);
             this.plateau[x][y].innonde();
         }
+        for(int i = 0; i < joueurs.size(); i++) joueurs.get(i).nbAction = 0;
     }
 
     public void addPlayer() {
-        plateau[0][0].j = new JoueurM(0, 0);
+        joueurs.add(new JoueurM(0, 0));
+        plateau[0][0].j = joueurs.get(joueurs.size() - 1);
     }
     
     /**
@@ -97,7 +100,7 @@ public class ileM {
         List<ZoneM> vois = voisins(z);
         ZoneM ancienneZone = null;
         for(int i = 0; i < vois.size(); i++) {
-            if(vois.get(i).j != null) {
+            if(vois.get(i).j != null && vois.get(i).j.nbAction < 3) {
                 vois.get(i).j.seDeplace(z);
                 z.j = vois.get(i).j;
                 ancienneZone = vois.get(i);

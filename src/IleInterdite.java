@@ -1,12 +1,7 @@
-import java.awt.Color;
-
 import C.Bouton;
-
-import java.awt.BorderLayout;
 
 import IG.Fenetre;
 import M.ileM;
-import V.IleV;
 
 public class IleInterdite {
     public static void main(String[] args) {

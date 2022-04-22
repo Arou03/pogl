@@ -1,5 +1,4 @@
 package IG;
-import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import java.awt.Dimension;
