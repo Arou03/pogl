@@ -24,10 +24,10 @@ public class ileM {
         for(int i = 0; i < dim; i++) {
             for(int j = 0; j < dim; j++) { 
                 if(
-                //  (i + j < (int) (0.4 * dim) && i - j < (int) (4 * dim)) ||
-                 (i + j > (int) (1.4 * dim)) ||
-                 (i + j > (int) (0.5 * dim) && i - j > (int) (0.5 * dim)) ||
-                 (i + j > (int) (0.5 * dim) && j - i > (int) (0.5 * dim)) 
+                    (i + j < (int) (0.4 * dim) && i - j < (int) (4 * dim)) ||
+                    (i + j > (int) (1.4 * dim)) ||
+                    (i + j > (int) (0.5 * dim) && i - j > (int) (0.5 * dim)) ||
+                    (i + j > (int) (0.5 * dim) && j - i > (int) (0.5 * dim)) 
                  ) {
                     plateau[i][j] = new ZoneM(i, j, Etat.SUBMERGEE, nbJoueur);
                  } else {
@@ -120,9 +120,9 @@ public class ileM {
      * @param id
      */
     public void addPlayer(int id) {
-        JoueurM j = new JoueurM(0, 0, id);
+        JoueurM j = new JoueurM(0, (int) this.dimension/2, id);
         joueurs.add(j);
-        plateau[j.x][j.y].joueurs.set(id , j);
+        plateau[j.x][j.y].joueurs[id] = j;
     }
     
     /**
@@ -154,11 +154,11 @@ public class ileM {
         List<ZoneM> vois = voisins(z);
         ZoneM ancienneZone = null;
         for(int i = 0; i < vois.size(); i++) {
-            if(vois.get(i).joueurs.get(tourEnCours) != null && vois.get(i).joueurs.get(tourEnCours).nbAction < 3) {
-                vois.get(i).joueurs.get(tourEnCours).seDeplace(z);
-                z.joueurs.set(tourEnCours, vois.get(i).joueurs.get(tourEnCours));
+            if(vois.get(i).joueurs[tourEnCours] != null && vois.get(i).joueurs[tourEnCours].nbAction < 3) {
+                vois.get(i).joueurs[tourEnCours].seDeplace(z);
+                z.joueurs[tourEnCours] = vois.get(i).joueurs[tourEnCours];
                 ancienneZone = vois.get(i);
-                vois.get(i).joueurs.set(tourEnCours, null);
+                vois.get(i).joueurs[tourEnCours] = null;
             }
         }
         return ancienneZone;

@@ -7,7 +7,7 @@ public class ZoneM {
     final int x;
     final int y;
 
-    public List<JoueurM> joueurs = new ArrayList<>();;
+    JoueurM[] joueurs;
 
     public enum Etat{
         NORMAL,
@@ -28,8 +28,9 @@ public class ZoneM {
         this.etat = e;
         this.x = x;
         this.y = y;
+        this.joueurs = new JoueurM[nbJoueur];
         for(int i = 0; i < nbJoueur; i++) {
-            this.joueurs.add(null);
+            this.joueurs[i] = null;
         }
     }
 
@@ -51,14 +52,14 @@ public class ZoneM {
     }
 
     public JoueurM getJoueur(int id) {
-        return joueurs.get(id);
+        return joueurs[id];
     }
 
     public String toString() {
         String joueurString = "";
-        for(int i = 0; i < joueurs.size(); i++) {
-            if(joueurs.get(i) != null) {
-                joueurString += joueurs.get(i).id;
+        for(int i = 0; i < joueurs.length; i++) {
+            if(joueurs[i] != null) {
+                joueurString += joueurs[i].id;
             } else {
                 joueurString += "v";
             }
@@ -87,14 +88,14 @@ public class ZoneM {
     }
 
     public Boolean contientJoueur() {
-        for(int i = 0; i < joueurs.size(); i++) {
-            if(joueurs.get(i) != null) return true;
+        for(int i = 0; i < joueurs.length; i++) {
+            if(joueurs[i] != null) return true;
         }
         return false;
     }
 
     public Boolean contientJoueur(int id) {
-        return joueurs.get(id) != null;
+        return joueurs[id] != null;
     }
     
     /**

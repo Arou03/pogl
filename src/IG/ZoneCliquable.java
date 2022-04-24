@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -31,6 +32,7 @@ public abstract class ZoneCliquable extends JPanel implements MouseListener {
         setPreferredSize(new Dimension(x, y));
         addMouseListener(this);
         setBackground(Color.WHITE);
+        setLayout(new FlowLayout());
     }
    
     /**

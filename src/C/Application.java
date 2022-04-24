@@ -8,7 +8,6 @@ import javax.swing.JButton;
 
 import IG.Fenetre;
 import IG.Texte;
-import M.ZoneM;
 import M.ileM;
 import V.IleV;
 
@@ -91,11 +90,10 @@ public class Application {
     
 
     /**
-     * constructeur Bouton 
+     * constructeur Application
      * @param f
      * @param ile
      */
-
     public Application (){}
 
     public void update(Texte AfficheTour, Texte AfficheAction, ileM ile) {

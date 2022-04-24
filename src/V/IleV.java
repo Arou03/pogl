@@ -22,8 +22,10 @@ public class IleV extends Grille {
             }
         }
         
-        for(int i = 0; i < ile.getNbJoueur(); i++)
-            ileView[0][0].add(new JoueurV(ile.getZone(0, 0).getJoueur(i)));
+        for(int i = 0; i < ile.getNbJoueur(); i++) {
+            JoueurV jV = new JoueurV(ile.getJoueur(i));
+            ileView[jV.getX()][jV.getY()].poseJoueur(jV);
+        }
     }
 
     public String toString() {

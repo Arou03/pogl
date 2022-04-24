@@ -1,5 +1,7 @@
 package C;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import IG.ZoneCliquable;
@@ -14,6 +16,7 @@ public class ZoneC extends ZoneCliquable{
     public int y;
     ZoneM zM;
     IleV Vile;
+    JoueurV[] joueurs;
     
     Random r = new Random();
      
@@ -31,6 +34,8 @@ public class ZoneC extends ZoneCliquable{
         this.y = z.getY();
         this.zM = z;
         this.Vile = ile;
+        this.joueurs = new JoueurV[ile.Ile.getNbJoueur()];
+        for(int i = 0; i < ile.Ile.getNbJoueur(); i++) joueurs[i] = null;
         Random r = new Random();
         switch(z.etat){
             case NORMAL:
@@ -47,6 +52,20 @@ public class ZoneC extends ZoneCliquable{
         }
     }
 
+    public void poseJoueur(JoueurV j) {
+        joueurs[j.getId()] = j;
+        this.add(j);
+    }
+
+    public void retireJoueur(int i) {
+        this.remove(joueurs[i]);
+        joueurs[i] = null;
+    }
+
+    public JoueurV getJoueur(int i) {
+        return joueurs[i];
+    }
+
     /**
      * le joueur se déplace grâce au clic gauche de la souris 
      */  
@@ -55,11 +74,13 @@ public class ZoneC extends ZoneCliquable{
         ZoneM exZone;
         exZone = Vile.Ile.seDeplace(this.zM);
         if(exZone != null) {
-            JoueurV tmp = (JoueurV) Vile.ileView[exZone.getX()][exZone.getY()].getComponent(0);
+            System.out.println("tour en cours : " + Vile.Ile.getTourEnCours());
+            JoueurV tmp = Vile.ileView[exZone.getX()][exZone.getY()].getJoueur(Vile.Ile.getTourEnCours());
+            this.poseJoueur(tmp);
             this.update();
-            this.add(tmp);
-            Vile.ileView[exZone.getX()][exZone.getY()].remove(tmp);
+            Vile.ileView[exZone.getX()][exZone.getY()].retireJoueur(Vile.Ile.getTourEnCours());
             Vile.ileView[exZone.getX()][exZone.getY()].update();
+            tmp.update();
         }
 
     }
@@ -69,7 +90,8 @@ public class ZoneC extends ZoneCliquable{
      */
     @Override
     public void clicDroit() {
-        if(Vile.Ile.asseche(this.zM)) this.setBackground(this.colorsNormal[0]);
+        if(Vile.Ile.getJoueur(Vile.Ile.getTourEnCours()).getNbAction() < 3)
+            if(Vile.Ile.asseche(this.zM)) this.setBackground(this.colorsNormal[0]);
     }
     
     /**
