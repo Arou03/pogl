@@ -67,7 +67,8 @@ public class ZoneC extends ZoneCliquable{
     
     @Override
     public void clicDroit() {
-
+        Vile.Ile.asseche(this.zM);
+        this.update();
     }
     
     /**
@@ -77,6 +78,7 @@ public class ZoneC extends ZoneCliquable{
     public void update() {
         switch(zM.etat){
             case NORMAL:
+                this.setBackground(colorsNormal[r.nextInt(colorsNormal.length)]);
                 break;
 
             case INONDEE:

@@ -24,10 +24,10 @@ public class ileM {
         for(int i = 0; i < dim; i++) {
             for(int j = 0; j < dim; j++) { 
                 if(
-                 (i + j < 4 && i - j < 4) ||
-                 (i + j > 14) ||
-                 (i + j > 5 && i - j > 5) ||
-                 (i + j > 5 && j - i > 5) 
+                 (i + j < (int) (0.4 * dim) && i - j < (int) (4 * dim)) ||
+                 (i + j > (int) (1.4 * dim)) ||
+                 (i + j > (int) (0.5 * dim) && i - j > (int) (0.5 * dim)) ||
+                 (i + j > (int) (0.5 * dim) && j - i > (int) (0.5 * dim)) 
                  ) {
                     plateau[i][j] = new ZoneM(i, j, Etat.SUBMERGEE, nbJoueur);
                  } else {
@@ -123,5 +123,23 @@ public class ileM {
             }
         }
         return ancienneZone;
+    }
+
+    public void asseche(ZoneM z) {
+        if((joueurs.get(tourEnCours).getX()) == z.getX() && (joueurs.get(tourEnCours).getY() == z.getY())) {
+            if (z.seche()) {
+                joueurs.get(tourEnCours).asseche();
+                return;
+            }
+        }
+        List<ZoneM> vois = voisins(plateau[joueurs.get(tourEnCours).getX()][joueurs.get(tourEnCours).getY()]);
+        for(int i = 0; i < vois.size(); i++) {
+            if((z.getX() == vois.get(i).getX()) && (z.getY() == vois.get(i).getY())) {
+                if (z.seche()) {
+                    joueurs.get(tourEnCours).asseche();
+                    return;
+                }
+            }
+        }
     }
 }

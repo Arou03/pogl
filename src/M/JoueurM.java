@@ -59,4 +59,8 @@ public class JoueurM {
         this.y = z.y;
         nbAction++;
     }
+
+    public void asseche() {
+        nbAction++;
+    }
 }

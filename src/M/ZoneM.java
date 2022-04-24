@@ -93,6 +93,12 @@ public class ZoneM {
         return joueurs.get(id) != null;
     }
 
-   
+    public Boolean seche() {
+        if (this.etat == Etat.INONDEE) {
+            this.etat = Etat.NORMAL;
+            return true;
+        }
+        return false;
+    } 
 
 }
