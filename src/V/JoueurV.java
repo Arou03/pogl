@@ -1,29 +1,27 @@
 package V;
 
-import java.awt.Color;
-import java.awt.Dimension;
-
-import javax.swing.JPanel;
-
 import M.JoueurM;
 
-public class JoueurV extends JPanel{
+import javax.swing.*;
+import java.awt.*;
+
+public class JoueurV extends JPanel {
     final int id;
+    private final Color[] playerColors = {
+            Color.decode("#0004ff"),
+            Color.decode("#db0000"),
+            Color.decode("#9d00db"),
+            Color.decode("#f6ff00")
+    };
     int x, y;
     JoueurM jM;
-    private final Color[] playerColors= {
-        Color.decode("#0004ff"),
-        Color.decode("#db0000"),
-        Color.decode("#9d00db"),
-        Color.decode("#f6ff00")
-     };
 
-     
 
-     /**
-      * constructeur 
-      * @param jM de type JoueurM 
-      */
+    /**
+     * constructeur
+     *
+     * @param jM de type JoueurM
+     */
     public JoueurV(JoueurM jM) {
         super();
         this.jM = jM;

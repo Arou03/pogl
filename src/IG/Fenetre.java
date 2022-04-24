@@ -1,11 +1,7 @@
 package IG;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 
 /**
@@ -17,10 +13,10 @@ public class Fenetre extends JFrame {
      * Ensemble des elements contenus dans la fenetre graphique.
      */
     private JPanel elements;
-    
+
     /**
      * Creation d'une fenetre graphique.
-     *
+     * <p>
      * Attention, ce constructeur ne fait que definir l'objet. Pour le faire
      * afficher il faut ensuite utiliser la methode {@code dessineFenetre()}.
      *
@@ -39,13 +35,13 @@ public class Fenetre extends JFrame {
      * @param element Element a ajouter.
      */
     public void ajouteElement(JComponent element) {
-	    elements.add(element);
+        elements.add(element);
     }
 
     public void ajouteElement(JComponent element, GridBagConstraints c) {
-	    elements.add(element, c);
+        elements.add(element, c);
     }
-    
+
     /**
      * Afficher la fenetre.
      */

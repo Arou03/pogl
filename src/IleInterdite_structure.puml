@@ -1,0 +1,357 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "IleInterdite",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_125569232 { 
+   	label=IleInterdite
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   IleInterdite125569232[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)IleInterdite</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2334 { 
+   	label=IG
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Fenetre2334[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Fenetre</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   elements: JPanel [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ ajouteElement(element: JComponent)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ ajouteElement(element: JComponent, c: GridBagConstraints)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ dessineFenetre()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Grille2334[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Grille</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ ajouteElement(element: JComponent)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Texte2334[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Texte</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ changeTexte(texte: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ZoneCliquable2334[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ZoneCliquable</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   texte: Texte [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ changeTexte(texte: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ clicDroit()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ clicGauche()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ mouseClicked(e: MouseEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ mouseEntered(e: MouseEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ mouseExited(e: MouseEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ mousePressed(e: MouseEvent)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ mouseReleased(e: MouseEvent)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_67 { 
+   	label=C
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Application67[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Application</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ creerLaFenetre()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ update(AfficheTour: Texte, AfficheAction: Texte, ile: ileM)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ZoneC67[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ZoneC</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   Vile: IleV [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   colorsNormal: Color[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   colorsSubmergee: Color[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   joueurs: JoueurV[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   r: Random [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   x: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   y: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   zM: ZoneM [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ clicDroit()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ clicGauche()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getJoueur(i: int): JoueurV</TD></TR>
+<TR><TD ALIGN="LEFT" >+ poseJoueur(j: JoueurV)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ retireJoueur(i: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ update()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_77 { 
+   	label=M
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   JoueurM77[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)JoueurM</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   id: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   nbAction: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   x: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   y: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ asseche()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ seDeplace(z: ZoneM)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ZoneM77[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ZoneM</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   etat: Etat [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   joueurs: JoueurM[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   x: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   y: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ contientJoueur(): Boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ contientJoueur(id: int): Boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getJoueur(id: int): JoueurM</TD></TR>
+<TR><TD ALIGN="LEFT" >+ innonde()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ seche(): Boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ileM77[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ileM</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   dimension: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   joueurs: List&lt;JoueurM&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   plateau: ZoneM[][] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tourEnCours: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addPlayer(id: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ asseche(z: ZoneM): Boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getJoueur(id: int): JoueurM</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getZone(x: int, y: int): ZoneM</TD></TR>
+<TR><TD ALIGN="LEFT" >+ innonde_random()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ seDeplace(z: ZoneM): ZoneM</TD></TR>
+<TR><TD ALIGN="LEFT" >+ tourSuivant()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ voisins(z: ZoneM): List&lt;ZoneM&gt;</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_86 { 
+   	label=V
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   IleV86[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)IleV</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   Ile: ileM [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   ileView: ZoneC[][] [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ actualise()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getZone(x: int, y: int): ZoneC</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+JoueurV86[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)JoueurV</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   id: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   jM: JoueurM [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   playerColors: Color[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   x: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   y: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ update()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Application67 -> IleV86[label="creerLaFenetre() -> actualise()"];
+Grille2334 -> IleV86[arrowhead=none, arrowtail=empty, dir=both];
+IleInterdite125569232 -> Application67[label="main() -> creerLaFenetre()"];
+IleV86 -> ZoneC67[label="ileView
+[0..*]"];
+IleV86 -> ileM77[label="Ile
+[0..1]"];
+JoueurV86 -> JoueurM77[label="jM
+[0..1]"];
+ZoneC67 -> IleV86[label="Vile
+[0..1]"];
+ZoneC67 -> JoueurV86[label="joueurs
+[0..*]"];
+ZoneC67 -> ZoneM77[label="zM
+[0..1]"];
+ZoneCliquable2334 -> Texte2334[label="texte
+[0..1]"];
+ZoneCliquable2334 -> ZoneC67[arrowhead=none, arrowtail=empty, dir=both];
+ZoneM77 -> JoueurM77[label="joueurs
+[0..*]"];
+ileM77 -> JoueurM77[label="joueurs
+[0..*]"];
+ileM77 -> ZoneM77[label="plateau
+[0..*]"];
+    
+}
+@enduml

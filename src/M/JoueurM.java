@@ -8,46 +8,51 @@ public class JoueurM {
     int nbAction;
 
     /**
-     * constructeur Joueur 
-     * @param x de type int 
-     * @param y de type int 
-     * @param id de type int  
+     * constructeur Joueur
+     *
+     * @param x  de type int
+     * @param y  de type int
+     * @param id de type int
      */
-    
+
     public JoueurM(int x, int y, int id) {
         this.x = x;
         this.y = y;
         this.id = id;
     }
-    
+
     /**
-     * methode getter 
-     * @return x; 
+     * methode getter
+     *
+     * @return x;
      */
-    public int getX(){
-        return x; 
-    }
-    
-     /**
-     * methode getter 
-     * @return y; 
-     */
-    public int getY(){
-        return y; 
+    public int getX() {
+        return x;
     }
 
-     /**
-     * methode getter 
-     * @return id; 
+    /**
+     * methode getter
+     *
+     * @return y;
      */
-    public int getId(){
-        return id; 
+    public int getY() {
+        return y;
     }
-    
-    
-     /**
-     * methode getter 
-     * @return nbAction; 
+
+    /**
+     * methode getter
+     *
+     * @return id;
+     */
+    public int getId() {
+        return id;
+    }
+
+
+    /**
+     * methode getter
+     *
+     * @return nbAction;
      */
     public int getNbAction() {
         return nbAction;
@@ -60,7 +65,8 @@ public class JoueurM {
 
 
     /**
-     * le joueur se déplace 
+     * le joueur se déplace
+     *
      * @param z de type ZoneM
      */
     public void seDeplace(ZoneM z) {
