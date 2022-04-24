@@ -145,11 +145,11 @@ public class ileM {
         return ancienneZone;
     }
 
-    public void asseche(ZoneM z) {
+    public Boolean asseche(ZoneM z) {
         if((joueurs.get(tourEnCours).getX()) == z.getX() && (joueurs.get(tourEnCours).getY() == z.getY())) {
             if (z.seche()) {
                 joueurs.get(tourEnCours).asseche();
-                return;
+                return true;
             }
         }
         List<ZoneM> vois = voisins(plateau[joueurs.get(tourEnCours).getX()][joueurs.get(tourEnCours).getY()]);
@@ -157,9 +157,10 @@ public class ileM {
             if((z.getX() == vois.get(i).getX()) && (z.getY() == vois.get(i).getY())) {
                 if (z.seche()) {
                     joueurs.get(tourEnCours).asseche();
-                    return;
+                    return true;
                 }
             }
         }
+        return false;
     }
 }
