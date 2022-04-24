@@ -2,10 +2,10 @@ package M;
 
 
 public class JoueurM {
-    public int id;
-    public int x;
-    public int y;
-    public int nbAction;
+    final int id;
+    int x;
+    int y;
+    int nbAction;
 
     /**
      * constructeur Joueur 
@@ -42,6 +42,10 @@ public class JoueurM {
      */
     public int getId(){
         return id; 
+    }
+
+    public int getNbAction() {
+        return nbAction;
     }
 
 

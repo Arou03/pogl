@@ -4,8 +4,8 @@ import java.util.*;
 
 public class ZoneM {
 
-    public int x;
-    public int y;
+    final int x;
+    final int y;
 
     public List<JoueurM> joueurs = new ArrayList<>();;
 
@@ -48,6 +48,10 @@ public class ZoneM {
      */
     public int getY(){
         return y; 
+    }
+
+    public JoueurM getJoueur(int id) {
+        return joueurs.get(id);
     }
 
     public String toString() {

@@ -51,10 +51,10 @@ public class Application {
         c.gridwidth = 1;
 	    c.gridx = 11;
         c.gridy = 0;
-        AfficheTour.changeTexte("Tour du joueur " + (modele.tourEnCours + 1) );
+        AfficheTour.changeTexte("Tour du joueur " + (modele.getTourEnCours() + 1) );
         fenetre.ajouteElement(AfficheTour, c);
         c.gridy = 1;
-        AfficheAction.changeTexte("Nombre d'action restantes : " + (3 - modele.joueurs.get(modele.tourEnCours).nbAction) );
+        AfficheAction.changeTexte("Nombre d'action restantes : " + (3 - modele.getJoueur(modele.getTourEnCours()).getNbAction()) );
         fenetre.ajouteElement(AfficheAction, c);
         c.gridy = 2;
         fenetre.ajouteElement(BoutonFdt, c);
@@ -65,7 +65,7 @@ public class Application {
          */
         BoutonFdt.addActionListener(e ->{
             modele.innonde_random();
-            AfficheTour.changeTexte("Tour du joueur " + (modele.tourEnCours + 1) );
+            AfficheTour.changeTexte("Tour du joueur " + (modele.getTourEnCours() + 1) );
             Vue.actualise();
         });
 
@@ -86,12 +86,10 @@ public class Application {
      * @param ile
      */
 
-    public Application (){
-
-    }
+    public Application (){}
 
     public void update(Texte AfficheTour, Texte AfficheAction, ileM ile) {
-        AfficheTour.changeTexte("Tour du joueur " + (ile.tourEnCours + 1) );
-        AfficheAction.changeTexte("Nombre d'action restantes : " + (3 - ile.joueurs.get(ile.tourEnCours).nbAction) );
+        AfficheTour.changeTexte("Tour du joueur " + (ile.getTourEnCours() + 1) );
+        AfficheAction.changeTexte("Nombre d'action restantes : " + (3 - ile.getJoueur(ile.getTourEnCours()).getNbAction()) );
     }
 }

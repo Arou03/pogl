@@ -6,8 +6,8 @@ import M.ileM;
 
 
 public class IleV extends Grille {
-    public ileM Ile;
-    public ZoneC[][] ileView;
+    final public ileM Ile;
+    final public ZoneC[][] ileView;
     // Attributs statiques
     public IleV(ileM ile) {
         super(ile.dimension, ile.dimension);
@@ -16,14 +16,14 @@ public class IleV extends Grille {
 
         for(int i = 0; i < ile.dimension; i++) {
             for(int j = 0; j < ile.dimension; j++) {
-                ZoneC z = new ZoneC(ile.plateau[i][j], this);
+                ZoneC z = new ZoneC(ile.getZone(i, j), this);
                 ileView[i][j] = z;
                 this.ajouteElement(z);
             }
         }
         
-        for(int i = 0; i < ile.joueurs.size(); i++)
-            ileView[0][0].add(new JoueurV(ile.plateau[0][0].joueurs.get(i)));
+        for(int i = 0; i < ile.getNbJoueur(); i++)
+            ileView[0][0].add(new JoueurV(ile.getZone(0, 0).getJoueur(i)));
     }
 
     public String toString() {

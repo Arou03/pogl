@@ -27,8 +27,8 @@ public class ZoneC extends ZoneCliquable{
      */
     public ZoneC(ZoneM z, IleV ile) {
         super(30, 30);
-        this.x = z.x;
-        this.y = z.y;
+        this.x = z.getX();
+        this.y = z.getY();
         this.zM = z;
         this.Vile = ile;
         Random r = new Random();
@@ -55,11 +55,11 @@ public class ZoneC extends ZoneCliquable{
         ZoneM exZone;
         exZone = Vile.Ile.seDeplace(this.zM);
         if(exZone != null) {
-            JoueurV tmp = (JoueurV) Vile.ileView[exZone.x][exZone.y].getComponent(0);
+            JoueurV tmp = (JoueurV) Vile.ileView[exZone.getX()][exZone.getY()].getComponent(0);
             this.update();
             this.add(tmp);
-            Vile.ileView[exZone.x][exZone.y].remove(tmp);
-            Vile.ileView[exZone.x][exZone.y].update();
+            Vile.ileView[exZone.getX()][exZone.getY()].remove(tmp);
+            Vile.ileView[exZone.getX()][exZone.getY()].update();
         }
 
     }

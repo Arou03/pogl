@@ -8,10 +8,10 @@ import M.ZoneM.Etat;
 
 
 public class ileM {
-    public ZoneM[][] plateau;
+    final ZoneM[][] plateau;
     public final int dimension;
-    public List<JoueurM> joueurs = new ArrayList<>();
-    public int tourEnCours = 0;
+    List<JoueurM> joueurs = new ArrayList<>();
+    int tourEnCours = 0;
      /**
      * constructeur  
      * @param dim de type int 
@@ -47,6 +47,26 @@ public class ileM {
             resultat += " \n";
         }
         return resultat;
+    }
+
+    public ZoneM getZone(int x, int y) {
+        return plateau[x][y];
+    }
+
+    public JoueurM getJoueur(int id) {
+        return joueurs.get(id);
+    }
+
+    public int getNbJoueur() {
+        return joueurs.size();
+    }
+
+    public int getTourEnCours() {
+        return tourEnCours;
+    }
+
+    public void tourSuivant() {
+        tourEnCours++;
     }
 
     /**

@@ -23,9 +23,9 @@ public class JoueurV extends JPanel{
       */
     public JoueurV(JoueurM jM) {
         super();
-        this.x = jM.x;
-        this.y = jM.y;
-        this.id = jM.id;
+        this.x = jM.getX();
+        this.y = jM.getY();
+        this.id = jM.getId();
         this.setPreferredSize(new Dimension(10, 10));
         this.setBackground(playerColors[this.id % 4]);
     }
