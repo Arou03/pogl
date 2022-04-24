@@ -96,7 +96,12 @@ public class ZoneM {
     public Boolean contientJoueur(int id) {
         return joueurs.get(id) != null;
     }
-
+    
+    /**
+     * si la zone est innondée, on change l'état de la zone en normal
+     * @return true
+     * sinon @return false
+     */
     public Boolean seche() {
         if (this.etat == Etat.INONDEE) {
             this.etat = Etat.NORMAL;

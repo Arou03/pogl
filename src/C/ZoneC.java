@@ -48,7 +48,7 @@ public class ZoneC extends ZoneCliquable{
     }
 
     /**
-     * le joueur se déplace en cliquant la gauche de la souris 
+     * le joueur se déplace grâce au clic gauche de la souris 
      */  
     @Override
     public void clicGauche() {
@@ -64,7 +64,9 @@ public class ZoneC extends ZoneCliquable{
 
     }
     
-    
+    /**
+     * assèche la zone grâce au clic droit de la souris
+     */
     @Override
     public void clicDroit() {
         if(Vile.Ile.asseche(this.zM)) this.setBackground(this.colorsNormal[0]);

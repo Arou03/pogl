@@ -43,7 +43,12 @@ public class JoueurM {
     public int getId(){
         return id; 
     }
-
+    
+    
+     /**
+     * methode getter 
+     * @return nbAction; 
+     */
     public int getNbAction() {
         return nbAction;
     }

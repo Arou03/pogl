@@ -24,7 +24,7 @@ public class ileM {
         for(int i = 0; i < dim; i++) {
             for(int j = 0; j < dim; j++) { 
                 if(
-                 (i + j < (int) (0.4 * dim) && i - j < (int) (4 * dim)) ||
+                //  (i + j < (int) (0.4 * dim) && i - j < (int) (4 * dim)) ||
                  (i + j > (int) (1.4 * dim)) ||
                  (i + j > (int) (0.5 * dim) && i - j > (int) (0.5 * dim)) ||
                  (i + j > (int) (0.5 * dim) && j - i > (int) (0.5 * dim)) 
@@ -48,19 +48,38 @@ public class ileM {
         }
         return resultat;
     }
-
+    
+    /**
+     * méthode getter
+     * @param x de type int
+     * @param y de type int
+     * @return coordonnée de la zone
+     */
     public ZoneM getZone(int x, int y) {
         return plateau[x][y];
     }
-
+    
+    /**
+     * methode getter
+     * @param id de type int
+     * @return l'id du joueur
+     */
     public JoueurM getJoueur(int id) {
         return joueurs.get(id);
     }
-
+    
+    /**
+     * méthode getter
+     * @return le nombre de joueur
+     */
     public int getNbJoueur() {
         return joueurs.size();
     }
 
+    /**
+     * méthode getter
+     * @return le nombre de tour en cours
+     */
     public int getTourEnCours() {
         return tourEnCours;
     }

@@ -8,6 +8,7 @@ import javax.swing.JButton;
 
 import IG.Fenetre;
 import IG.Texte;
+import M.ZoneM;
 import M.ileM;
 import V.IleV;
 
@@ -23,17 +24,27 @@ public class Application {
         } catch (InputMismatchException e) {
             System.out.println("Entrée invalide.\n Taille par défaut : 10");
         }
-        System.out.println("Combien de joueurs voulez vous ? ");
+        System.out.println("Combien de joueurs voulez-vous ? ");
         try {
             nbJoueur = entree.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Entrée invalide.\n Nombre de joueur par défaut : 4");
         }
         entree.close();
+
+        /**
+         * création des boutons
+         */
         JButton BoutonFdt = new JButton("Fin de tour");
         JButton BoutonEnd = new JButton("Exit");
+
         Texte AfficheTour = new Texte("");
         Texte AfficheAction = new Texte("");
+
+        /**
+         * création de la fenêtre
+         * et ajout de notre modèle 
+         */
         Fenetre fenetre = new Fenetre( "Ile Interdite");
         ileM modele = new ileM(dimension, nbJoueur);
         IleV Vue = new IleV(modele);
@@ -60,6 +71,7 @@ public class Application {
         fenetre.ajouteElement(BoutonFdt, c);
         c.gridy = 3;
         fenetre.ajouteElement(BoutonEnd, c);
+
         /**
          * ajout des actions  des boutons 
          */
@@ -72,8 +84,6 @@ public class Application {
         BoutonEnd.addActionListener(e ->{
             fenetre.dispose();
         });
-
-        
 
         fenetre.dessineFenetre();
     }
