@@ -47,7 +47,9 @@ public class ZoneC extends ZoneCliquable{
         }
     }
 
-
+    /**
+     * le joueur se déplace en cliquant la gauche de la souris 
+     */  
     @Override
     public void clicGauche() {
         ZoneM exZone;
@@ -62,19 +64,11 @@ public class ZoneC extends ZoneCliquable{
 
     }
     
-    /**
-     * le joueur se déplace
-     */
+    
     @Override
     public void clicDroit() {
 
     }
-
-    /*public void ZONE(Zone SUBMERGEE, Zone INONDEE){
-        this.SUBMERGEE = setBackground(Color.GRAY));
-        this.INONDEE = setBackground(Color.GREEN); //bref j'en ai marre d
-
-    }*/
     
     /**
      * Mise à jour de la zoneVue 

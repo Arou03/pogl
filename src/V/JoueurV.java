@@ -16,6 +16,11 @@ public class JoueurV extends JPanel{
         Color.decode("#9d00db"),
         Color.decode("#f6ff00")
      };
+
+     /**
+      * constructeur 
+      * @param jM de type JoueurM 
+      */
     public JoueurV(JoueurM jM) {
         super();
         this.x = jM.x;

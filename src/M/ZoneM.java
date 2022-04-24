@@ -19,9 +19,10 @@ public class ZoneM {
     
     /**
      * constructeur
-     * @param x
-     * @param y
-     * @param e
+     * @param x de type int 
+     * @param y de type int
+     * @param e de type Etat
+     * @param nbJoueur de type int 
      */
     public ZoneM(int x, int y, Etat e, int nbJoueur) {
         this.etat = e;
@@ -30,6 +31,23 @@ public class ZoneM {
         for(int i = 0; i < nbJoueur; i++) {
             this.joueurs.add(null);
         }
+    }
+
+    /**
+     * méthode getter 
+     * @return x; 
+     */
+
+    public int getX(){
+        return x; 
+    }
+
+    /**
+     * méthode getter 
+     * @return y;  
+     */
+    public int getY(){
+        return y; 
     }
 
     public String toString() {
@@ -75,6 +93,6 @@ public class ZoneM {
         return joueurs.get(id) != null;
     }
 
-   //quand tu construis une zone, elles sont normales de base puis on mettra une couleur
+   
 
 }

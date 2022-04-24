@@ -9,7 +9,9 @@ public class JoueurM {
 
     /**
      * constructeur Joueur 
-     * param int x, int y 
+     * @param x de type int 
+     * @param y de type int 
+     * @param id de type int  
      */
     
     public JoueurM(int x, int y, int id) {
@@ -17,6 +19,31 @@ public class JoueurM {
         this.y = y;
         this.id = id;
     }
+    
+    /**
+     * methode getter 
+     * @return x; 
+     */
+    public int getX(){
+        return x; 
+    }
+    
+     /**
+     * methode getter 
+     * @return y; 
+     */
+    public int getY(){
+        return y; 
+    }
+
+     /**
+     * methode getter 
+     * @return id; 
+     */
+    public int getId(){
+        return id; 
+    }
+
 
     public String toString() {
         return "id :" + id + " (" + x + ", " + y + ")";
@@ -25,7 +52,7 @@ public class JoueurM {
 
     /**
      * le joueur se déplace 
-     * param Zone z
+     * @param z de type ZoneM
      */
     public void seDeplace(ZoneM z) {
         this.x = z.x;

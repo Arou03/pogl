@@ -14,7 +14,8 @@ public class ileM {
     public int tourEnCours = 0;
      /**
      * constructeur  
-     * @param dim
+     * @param dim de type int 
+     * @param nbJoueur de type int
      */
 
     public ileM(int dim, int nbJoueur){
@@ -73,7 +74,12 @@ public class ileM {
             tourEnCours++;
         }
     }
+    
 
+    /**
+     * ajout des joueurs
+     * @param id
+     */
     public void addPlayer(int id) {
         JoueurM j = new JoueurM(0, 0, id);
         joueurs.add(j);
@@ -103,7 +109,7 @@ public class ileM {
     /**
      * déplace le joueur sur la zone passée en paramètre
      * @param z de type ZoneM 
-     * @return les coordonnées des voisins dans une liste
+     * @return les coordonnées de l'ancienne zone
      */
     public ZoneM seDeplace(ZoneM z) {
         List<ZoneM> vois = voisins(z);

@@ -10,7 +10,7 @@ public class IleInterdite {
         int dimension = 10; 
         int nbJoueur = 4;
         Scanner entree = new Scanner(System.in);
-        System.out.println("Combien de joueurs voulez vous ? ");
+        System.out.println("Combien de joueurs voulez-vous ? ");
         try {
             nbJoueur = entree.nextInt();
         } catch (InputMismatchException e) {
@@ -33,6 +33,4 @@ public class IleInterdite {
 
 }
 
- /*Plateau plateau = new Plateau(nb);
-        Validation validation = new Validation(plateau);
-        Indice indice = new Indice(plateau);*/
+ 
